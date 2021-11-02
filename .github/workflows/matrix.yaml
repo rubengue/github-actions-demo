@@ -4,7 +4,25 @@ on: push
 
 jobs:
   node-version:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node-v: [10, 12, 14]
+
+        include:
+          - os: ubuntu-latest
+            node-v: 12
+            is-ubuntu-10: true
+
+        exclude:
+          - os: ubuntu-latest
+            node-v: 10
+          - os: windows-latest
+            node-v: 14
+
+    runs-on: ${{ matrix.os }}
+    env:
+      IS_UBUNTU_10: ${{ matrix.is-ubuntu-10}}
     steps:
       - name: Log node Version
         run: node -v 
