@@ -2,7 +2,7 @@
 name: Actions workflow
 
 on: 
-  push:
+#  push:
   pull_request: 
     types: [closed, opened, assigned, reopened]
     
