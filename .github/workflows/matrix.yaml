@@ -12,7 +12,7 @@ jobs:
         include:
           - os: ubuntu-latest
             node-v: 12
-            is-ubuntu-10: true
+            is-ubuntu-10: "true"
 
         exclude:
           - os: ubuntu-latest
